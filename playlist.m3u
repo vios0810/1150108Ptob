@@ -1,5 +1,5 @@
 #EXTM3U
-# Last Update: 2026-01-08 17:20:51
+# Last Update: 2026-01-08 18:18:23
 #EXTINF:-1 tvg-logo="https://img.youtube.com/vi/MZhMxKNtOnA/hqdefault.jpg" group-title="🌸西八新聞",【中天電視CtiTv】主播攝影棚楚門秀會員專屬視角中天電視
 https://www.youtube.com/watch?v=MZhMxKNtOnA
 #EXTINF:-1 tvg-logo="https://img.youtube.com/vi/vr3XyVCR4T0/hqdefault.jpg" group-title="🌸西八新聞",【中天電視CtiTv】中天新聞小時新聞台湾放送中天電視
@@ -36,9 +36,9 @@ https://www.youtube.com/watch?v=ylYJSBUgaMA
 https://www.youtube.com/watch?v=quwqlazU-c8
 #EXTINF:-1 tvg-logo="https://img.youtube.com/vi/Vrs-AeKZIEg/hqdefault.jpg" group-title="🌸西八新聞",【TaiwanPlus】台湾番組時間配信
 https://www.youtube.com/watch?v=Vrs-AeKZIEg
-#EXTINF:-1 tvg-logo="https://img.youtube.com/vi/MIqUplvSRWA/hqdefault.jpg" group-title="🌸西八新聞",【大愛電視】大愛一臺全球現正播映經典劇坊在愛之外
+#EXTINF:-1 tvg-logo="https://img.youtube.com/vi/MIqUplvSRWA/hqdefault.jpg" group-title="🌸西八新聞",【大愛電視】大愛一臺全球現正播映大愛地球村
 https://www.youtube.com/watch?v=MIqUplvSRWA
-#EXTINF:-1 tvg-logo="https://img.youtube.com/vi/DTNkEm6jaqQ/hqdefault.jpg" group-title="🌸西八新聞",【大愛電視】大愛二臺全球現正播映經典劇坊在愛之外
+#EXTINF:-1 tvg-logo="https://img.youtube.com/vi/DTNkEm6jaqQ/hqdefault.jpg" group-title="🌸西八新聞",【大愛電視】大愛二臺全球現正播映大愛地球村
 https://www.youtube.com/watch?v=DTNkEm6jaqQ
 #EXTINF:-1 tvg-logo="https://img.youtube.com/vi/5n0y6b0Q25o/hqdefault.jpg" group-title="🌸西八新聞",【鏡新聞】線上看小時新聞台湾時間放送
 https://www.youtube.com/watch?v=5n0y6b0Q25o
@@ -96,8 +96,6 @@ https://www.youtube.com/watch?v=3bAc9rGxNPg
 https://www.youtube.com/watch?v=HIE1r3ELkbo
 #EXTINF:-1 tvg-logo="https://img.youtube.com/vi/v8MUGB4vst8/hqdefault.jpg" group-title="🌸西八綜藝",【豬哥會社】馬拉松不間斷
 https://www.youtube.com/watch?v=v8MUGB4vst8
-#EXTINF:-1 tvg-logo="https://img.youtube.com/vi/dhSMUauknEM/hqdefault.jpg" group-title="🌸西八綜藝",【204檔案】祂我們時間不多了新片上架
-https://www.youtube.com/watch?v=dhSMUauknEM
 #EXTINF:-1 tvg-logo="https://img.youtube.com/vi/HtUVepidg7c/hqdefault.jpg" group-title="🌸西八綜藝",【非凡大探索】美食篇不間斷
 https://www.youtube.com/watch?v=HtUVepidg7c
 #EXTINF:-1 tvg-logo="https://img.youtube.com/vi/EZ8GQ8hH6GI/hqdefault.jpg" group-title="🌸西八綜藝",【非凡大探索】台中美食篇不間斷
@@ -156,8 +154,8 @@ https://www.youtube.com/watch?v=6CvUw2EAdG0
 https://www.youtube.com/watch?v=HKDuzWlyGts
 #EXTINF:-1 tvg-logo="https://img.youtube.com/vi/6lKL5znyZkc/hqdefault.jpg" group-title="🌸西八影劇",【GTV DRAMA English】惡作劇之吻馬拉松
 https://www.youtube.com/watch?v=6lKL5znyZkc
-#EXTINF:-1 tvg-logo="https://img.youtube.com/vi/FJ3spzdobIY/hqdefault.jpg" group-title="🌸西八影劇",【精选大剧】暗战以身为饵智擒毒王跨境毒网藏暗处警徽闪耀破阴霾
-https://www.youtube.com/watch?v=FJ3spzdobIY
+#EXTINF:-1 tvg-logo="https://img.youtube.com/vi/g6V7v01PByY/hqdefault.jpg" group-title="🌸西八影劇",【精选大剧】暗战以身为饵智擒毒王跨境毒网藏暗处警徽闪耀破阴霾
+https://www.youtube.com/watch?v=g6V7v01PByY
 #EXTINF:-1 tvg-logo="https://img.youtube.com/vi/BYNWUMC2Np4/hqdefault.jpg" group-title="🌸西八音樂",【4kTQ-music】超好聽的中文歌單華語單曲排行週榜愛就一個字總會有人花海門沒鎖周杰倫林俊傑鄧紫棋
 https://www.youtube.com/watch?v=BYNWUMC2Np4
 #EXTINF:-1 tvg-logo="https://img.youtube.com/vi/LlDa4PpVh0M/hqdefault.jpg" group-title="🌸西八音樂",【4kTQ-music】流行歌曲不能不聽的首歌網路超火歌曲抖音一月熱門歌曲最火抖音歌曲首抖音歌曲合集分集播放最高音質
