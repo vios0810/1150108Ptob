@@ -25,7 +25,7 @@ jobs:
 
     - name: Run Dolphin Spider
       run: |
-        python 海豚_m3u_group.py
+        python dolphin_m3u_group.py
 
     - name: Upload generated M3U as artifact
       uses: actions/upload-artifact@v4
