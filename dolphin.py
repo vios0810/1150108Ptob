@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Author  : Doubebly
 # @Time    : 2026/1/4
-# @file    : 海豚_m3u_group.py
+# @file    : dolphin_m3u_group.py
 
 import sys
 import requests
@@ -13,7 +13,7 @@ from base.spider import Spider as BaseSpider
 class Spider(BaseSpider):
     def __init__(self):
         super(Spider, self).__init__()
-        self.name = '海豚'
+        self.name = 'dolphin'
         self.url = ''
         self.headers = {
             'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36",
