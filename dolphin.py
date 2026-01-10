@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # @Author  : Doubebly
 # @Time    : 2026/1/4
-# @file    : 海豚_m3u.py
+# @file    : 海豚_m3u_group.py
 
 import sys
 import requests
@@ -29,32 +29,44 @@ class Spider(BaseSpider):
     def liveContent(self, url):
         tv_list = ['#EXTM3U']  # M3U 開頭
         try:
+            # 取得 base URI
             response = requests.get(
                 'https://raw.githubusercontent.com/FGBLH/FG/refs/heads/main/港台大陆频道',
                 headers=self.headers
             )
             uri = None
-            for i in response.text.strip().splitlines():
-                if 'http://iptvpro.pw:35451' in i:
-                    uri = i.split(',')[1].rsplit('/', 1)[0] + '/'
+            for line in response.text.strip().splitlines():
+                if 'http://iptvpro.pw:35451' in line:
+                    uri = line.split(',')[1].rsplit('/', 1)[0] + '/'
                     break
 
             if uri:
                 response2 = requests.get('http://kenneth001.serv00.net/IPTVpro源.txt', headers=self.headers)
                 response2.encoding = 'utf-8'
-                for i in response2.text.strip().splitlines():
-                    if '#genre#' in i:
-                        continue  # genre 標記可以略過
+
+                current_genre = "其他"  # 預設分類
+                for line in response2.text.strip().splitlines():
+                    line = line.strip()
+                    if not line:
+                        continue
+
+                    if '#genre#' in line:
+                        # 解析分類名稱，例如 "#genre#港台" -> "港台"
+                        current_genre = line.replace('#genre#', '').strip()
                     else:
-                        info = i.split(',')
-                        name = info[0]
-                        pid = info[1].split('=')[-1]
+                        info = line.split(',')
+                        if len(info) < 2:
+                            continue
+                        name = info[0].strip()
+                        pid = info[1].split('=')[-1].strip()
                         ts_url = f'{uri}{pid}.ts'
-                        # 組裝 M3U 格式
-                        tv_list.append(f'#EXTINF:-1 tvg-name="{name}",{name}')
+                        # 組裝 M3U 格式，帶 group-title
+                        tv_list.append(f'#EXTINF:-1 tvg-name="{name}" group-title="{current_genre}",{name}')
                         tv_list.append(ts_url)
+
         except Exception as e:
-            print(e)
+            print("抓取出錯:", e)
+
         return '\n'.join(tv_list)
 
     def init_ck(self):
@@ -73,6 +85,6 @@ if __name__ == '__main__':
     sp.init()
     m3u_content = sp.liveContent('')
     # 寫入檔案
-    with open('dolphin.m3u', 'w', encoding='utf-8') as f:
+    with open('dolphin_group.m3u', 'w', encoding='utf-8') as f:
         f.write(m3u_content)
-    print("已生成 dolphin.m3u")
+    print("已生成 dolphin_group.m3u（自動分類版）")
