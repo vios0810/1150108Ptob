@@ -31,6 +31,7 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add .
-          git commit -m "Auto run gota.py" || echo "No changes"
-          git push
+          git add requirements.txt
+git commit -m "add requirements.txt"
+git push
+
