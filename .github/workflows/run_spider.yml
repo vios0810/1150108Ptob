@@ -2,9 +2,8 @@ name: Generate Dolphin M3U
 
 on:
   schedule:
-    # 每天早上 7 點自動跑 (UTC+0 你可以調整)
-    - cron: '0 23 * * *'
-  workflow_dispatch:  # 手動觸發
+    - cron: '0 23 * * *'  # 每天早上 7 點台灣時間 (UTC+0 23:00)
+  workflow_dispatch:
 
 jobs:
   build:
@@ -29,7 +28,7 @@ jobs:
         python 海豚_m3u_group.py
 
     - name: Upload generated M3U as artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: dolphin_m3u
         path: dolphin_group.m3u
