@@ -2,59 +2,64 @@
 # -*- coding: utf-8 -*-
 
 """
-依照 海豚 Spider 的輸出規則：
-#genre#分類
-頻道名,播放URL
-
-轉成 IPTV 標準 M3U(list.txt)
+gota.py
+用途：
+- 修正 GitHub Actions / Linux 環境下的 import 路徑問題
+- 呼叫 海豚 Spider
+- 產生 IPTV 所需資料（例如 list.txt）
 """
 
+import os
+import sys
+
+# === 關鍵：把專案根目錄加入 Python 搜尋路徑 ===
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+if BASE_DIR not in sys.path:
+    sys.path.insert(0, BASE_DIR)
+
+# === 現在這些 import 在 GitHub Actions 會 100% 成功 ===
 from 海豚 import Spider
 
 
-class M3UBuilder:
+def main():
+    sp = Spider()
 
-    def __init__(self):
-        self.spider = Spider()
+    # 取得 Spider 原始輸出（#genre# + name,url）
+    raw = sp.liveContent('')
 
-    def build(self):
-        raw = self.spider.liveContent('')
-        lines = raw.splitlines()
+    # 轉成 M3U(list.txt)
+    lines = raw.splitlines()
+    m3u = []
+    m3u.append('#EXTM3U')
 
-        m3u_lines = []
-        m3u_lines.append('#EXTM3U')
+    group = '未分類'
 
-        group = '未分類'
+    for line in lines:
+        line = line.strip()
+        if not line:
+            continue
 
-        for line in lines:
-            line = line.strip()
-            if not line:
-                continue
+        if line.startswith('#genre#'):
+            group = line.replace('#genre#', '').strip()
+            continue
 
-            # 分類行
-            if line.startswith('#genre#'):
-                group = line.replace('#genre#', '').strip()
-                continue
+        if ',' not in line:
+            continue
 
-            # 頻道行
-            if ',' not in line:
-                continue
+        name, url = line.split(',', 1)
 
-            name, url = line.split(',', 1)
+        m3u.append(
+            f'#EXTINF:-1 tvg-name="{name}" group-title="{group}",{name}'
+        )
+        m3u.append(url)
 
-            m3u_lines.append(
-                f'#EXTINF:-1 tvg-name="{name}" group-title="{group}",{name}'
-            )
-            m3u_lines.append(url)
+    # 輸出 list.txt（給 IPTV / TVBox 用）
+    out_file = os.path.join(BASE_DIR, 'list.txt')
+    with open(out_file, 'w', encoding='utf-8') as f:
+        f.write('\n'.join(m3u))
 
-        return '\n'.join(m3u_lines)
-
-    def save(self, filename='list.txt'):
-        content = self.build()
-        with open(filename, 'w', encoding='utf-8') as f:
-            f.write(content)
-        print(f'✅ {filename} 產生完成')
+    print('✅ list.txt generated')
 
 
 if __name__ == '__main__':
-    M3UBuilder().save()
+    main()
